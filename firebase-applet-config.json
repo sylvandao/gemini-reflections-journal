@@ -1,0 +1,12 @@
+{
+  "projectId": "replace-with-firebase-project-id",
+  "appId": "replace-with-firebase-app-id",
+  "apiKey": "replace-with-firebase-web-api-key",
+  "authDomain": "replace-with-firebase-auth-domain",
+  "firestoreDatabaseId": "(default)",
+  "storageBucket": "replace-with-firebase-storage-bucket",
+  "messagingSenderId": "replace-with-firebase-sender-id",
+  "measurementId": "",
+  "oAuthClientId": "",
+  "recaptchaSiteKey": ""
+}

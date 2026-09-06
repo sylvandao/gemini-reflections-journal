@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js Build & Outputs
+.next/
+out/
+build/
+dist/
+
+# Environment Variables & Secrets (CRITICAL FOR GITHUB)
+.env
+.env.*
+!.env.example
+
+# Service Accounts & Security Keys
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*service-account*.json
+*credentials*.json
+.npmrc
+.firebase/
+.gcloud/
+.vercel/
+
+# Debug Logs & OS Files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+*.pem
+coverage/
+.turbo/
+.cache/

@@ -1,0 +1,76 @@
+{
+  "entities": {
+    "UserProfile": {
+      "collection": "users",
+      "fields": {
+        "uid": { "type": "string", "description": "User UID from Firebase Auth" },
+        "email": { "type": "string", "description": "User email" },
+        "displayName": { "type": "string", "description": "User display name" },
+        "photoURL": { "type": "string", "description": "User profile photo URL" },
+        "role": { "type": "string", "description": "Role: user | admin", "enum": ["user", "admin"] },
+        "createdAt": { "type": "string", "description": "ISO timestamp of account creation" },
+        "lastLoginAt": { "type": "string", "description": "ISO timestamp of last login" },
+        "totalEntries": { "type": "number", "description": "Total entries count" }
+      }
+    },
+    "JournalEntry": {
+      "collection": "users/{userId}/entries",
+      "fields": {
+        "id": { "type": "string", "description": "Unique entry identifier" },
+        "userId": { "type": "string", "description": "Owner user ID" },
+        "title": { "type": "string", "description": "Entry title or topic" },
+        "category": { "type": "string", "description": "Category e.g. Daily Reflection, Brainstorming, Mindfulness, Decision Making" },
+        "mood": { "type": "string", "description": "Optional mood tag e.g. Inspired, Grateful, Reflective, Challenged" },
+        "priority": { "type": "string", "description": "Priority flag: normal | important | urgent | crisis | milestone", "enum": ["normal", "important", "urgent", "crisis", "milestone"] },
+        "location": {
+          "type": "object",
+          "description": "Location metadata (name, address, lat, lng, placeId, mapsUrl)"
+        },
+        "notificationStatus": {
+          "type": "object",
+          "description": "Status and log of external notification dispatches (Slack/Discord/Email)"
+        },
+        "summary": { "type": "string", "description": "AI-generated executive summary" },
+        "keyInsights": { "type": "array", "description": "List of key takeaways distilled by Gemini" },
+        "actionItems": { "type": "array", "description": "List of recommended next steps or reflections" },
+        "createdAt": { "type": "string", "description": "ISO timestamp" },
+        "updatedAt": { "type": "string", "description": "ISO timestamp of last update" },
+        "turns": { "type": "array", "description": "Array of conversation turns" },
+        "isArchived": { "type": "boolean", "description": "Archive state" }
+      }
+    },
+    "Interaction": {
+      "collection": "users/{userId}/interactions",
+      "fields": {
+        "id": { "type": "string", "description": "Unique interaction record ID" },
+        "userId": { "type": "string", "description": "Owner user ID" },
+        "prompt": { "type": "string", "description": "User's submitted prompt or reflection" },
+        "response": { "type": "string", "description": "Gemini's generated response" },
+        "modelUsed": { "type": "string", "description": "Model used e.g. gemini-3.6-flash" },
+        "timestamp": { "type": "string", "description": "ISO timestamp" },
+        "entryId": { "type": "string", "description": "Linked journal entry ID if applicable" }
+      }
+    },
+    "SystemAuditLog": {
+      "collection": "audit_logs",
+      "fields": {
+        "id": { "type": "string", "description": "Unique audit log ID" },
+        "timestamp": { "type": "string", "description": "ISO timestamp" },
+        "actorId": { "type": "string", "description": "Actor user UID" },
+        "actorEmail": { "type": "string", "description": "Actor email" },
+        "action": { "type": "string", "description": "Action name" },
+        "details": { "type": "string", "description": "Audit details" },
+        "category": { "type": "string", "description": "Audit category" }
+      }
+    },
+    "AdminSettings": {
+      "collection": "admin_settings",
+      "fields": {
+        "id": { "type": "string", "description": "Settings doc ID e.g. notifications" },
+        "rules": { "type": "array", "description": "Array of NotificationRule objects" },
+        "updatedAt": { "type": "string", "description": "ISO timestamp" },
+        "updatedBy": { "type": "string", "description": "Admin UID" }
+      }
+    }
+  }
+}

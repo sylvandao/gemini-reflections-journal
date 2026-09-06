@@ -1,0 +1,6 @@
+{
+  "name": "Gemini Reflections Journal",
+  "description": "A secure, user-authenticated reflection and journaling web app with Firebase Authentication, Firestore persistence, Real-Time Live Voice Agent mode, Google Maps location pinning, and external notification alerts.",
+  "requestFramePermissions": ["microphone", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
